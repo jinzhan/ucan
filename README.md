@@ -58,11 +58,11 @@
     ├─mock
     ├─lib
     ├─modules
-    │  ├─app
+    │  ├─js
     │  ├─css
     │  ├─lib
-    │  ├─ui
-    │  └─util
+    │  ├─ul
+    │  └─html
     └─test
 
 根目录下存放html文件。
@@ -70,9 +70,10 @@
 - components fis 组件的目录
 - lib 存放一些不打包的js库
 - modules 项目的组件
-	- app 项目用到的js
+	- js 项目用到的全局js
 	- css 项目用到的css
+	    - config.less 公共配置样式表
 	- lib 第三方js
-	- ui UI 组件
-	- util 工具组件
+	- ui UI组件
+	- html 前端模块
 - mock 模拟数据, 远程模拟数据配置
