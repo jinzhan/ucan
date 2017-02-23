@@ -16,7 +16,7 @@ module.exports = {
             methods: {
                 loadData: function () {
                     var $this = this;
-                    axios.get('/ucan/courses/searchTeacher', {
+                    axios.get('/view/guest/teachers/searchTeacher', {
                         params: {}
                     })
                         .then(function (response) {

@@ -1,19 +1,31 @@
-<div class="recom-teacher lo-home" id="recom-teacher">
+<div class="recom-teacher lo-home slider-outer" id="recom-teacher" data-ox="22">
     <h2 class="title-bar">
         <span>最新名师</span>
     </h2>
-    <ul class="lo-home">
-        <li v-for="(item, index) in rows">
-            <a href="#">
-                <span class="img" v-bind:style="'background:url('+item.photoUrl+')'"></span>
-                <span>{{item.name}}（{{item.schoolClass.school.city}}）</span>
-            </a>
-        </li>
-    </ul>
+
+    <div class="tl-btn-container" v-if="rows.length>=5">
+        <a class="tl-forward tl-btn">
+            <span class="tl-right-arrow"></span>
+        </a>
+        <a class="tl-backward tl-btn disabled">
+            <span class="tl-left-arrow"></span>
+        </a>
+    </div>
+
+    <div class="slider-wrapper">
+        <ul class="slider-el lo-home cf"  v-bind:style="'width:'+(rows.length*430-40) + 'px'">
+            <li v-for="(item, index) in rows">
+                <a href="#">
+                    <span class="img" v-bind:style="'background:url('+item.photoUrl+')'"></span>
+                    <span>{{item.name}}（{{item.schoolsClasses.school.city}}）</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <script>
-    require.async('./teacher.js', function(teacher){
+    require.async('./teacher.js', function (teacher) {
         teacher.init();
     });
 </script>
