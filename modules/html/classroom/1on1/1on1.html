@@ -1,10 +1,10 @@
-<div class="box-1on1">
+<div class="box-1on1 slider-outer" id="box-1on1" data-ox="55">
     <div class="header-1on1">
         <h2 class="title-bar">
             <span>课程推荐</span>
         </h2>
 
-        <div class="tl-btn-container" v-if="rows.length>=3">
+        <div class="tl-btn-container" v-if="rows.length>5">
             <a class="tl-forward tl-btn">
                 <span class="tl-right-arrow"></span>
             </a>
@@ -15,24 +15,31 @@
     </div>
 
     <ul class="cul course-type">
-        <li><a class="cur" href="#">全部课程</a></li>
-        <li><a href="#">英语</a></li>
-        <li><a href="#">语文</a></li>
-        <li><a href="#">数学</a></li>
-        <li><a href="#">其他</a></li>
+        <li><a href="#"
+               v-bind:class="{'cur': currentNavId===navAllIds}"
+               v-on:click.prevent="currentNavId=navAllIds;changeClassNav(navAllIds)">全部课程</a></li>
+        <li v-for="(item, index) in navList"
+        ><a href="#"
+            v-bind:class="{'cur': currentNavId===item.id}"
+            v-on:click.prevent="currentNavId=item.id;changeClassNav(item.id)"
+        >{{ item.topic }}</a></li>
     </ul>
 
-    <div class="course-content">
-        <ul class="cf">
-            {%for $i=0;$i<5;$i++%}
-                <li>
-                    <a href="####">
-                        <span class="img"></span>
-                        <span class="start-time">今天 12:00</span>
-                        <span class="teacher">赵老师<em>音乐</em><em>音乐</em></span>
-                    </a>
-                </li>
-            {%/for%}
+    <div class="slider-wrapper course-content">
+        <ul class="slider-el cf" v-bind:style="'width:'+(rows.length*(187+55)-55) + 'px'">
+            <li v-for="(item, index) in rows">
+                <a href="#">
+                    <span class="img" v-bind:style="'background:url(' + item.ucanFile.newUrl+ ')'"></span>
+                    <span class="start-time">查看全部课程</span>
+                    <span class="teacher">{{item.name}}<em v-if="item.workYears">{{item.workYears}}年教龄</em><!--<em>英语</em>--></span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
+
+<script>
+    require.async('./1on1.js', function(app){
+        app.init();
+    });
+</script>
