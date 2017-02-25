@@ -3,33 +3,15 @@
  * @author Lone(chenguoliang@baidu.com)
  * @version 1.0
  */
-
-var $ = require('y:widget/js/lib/jquery.js');
-var Carousel = require('y:widget/js/ui/carousel/carousel.js');
-var Dialog = require('y:widget/js/ui/dialog/dialog.js');
-var juicer = require('y:widget/js/lib/juicer.origin.js');
+var $ = require('/modules/lib/jquery.js');
+var Vue = require('/modules/lib/Vue.js');
+var axios = require('/modules/lib/axios.js');
+var Dialog = require('/modules/lib/jquery.ui.dialog.js');
+var juicer = require('/modules/lib/juicer.js');
 
 var app = {
     init: function() {
-        this.headeCarousel();
         this.bind();
-    },
-    headeCarousel: function() {
-        var taeget = $('#carousel-cotainer');
-        var imgArray = taeget.find('.img-item');
-        var carousel = new Carousel({
-            items: imgArray,
-            direction: 'horizontal',
-            controls: true,
-            interval: 3000,
-            indicators: false,
-            duration: 300,
-            viewSize: 1
-        });
-        carousel.render('#carousel-cotainer');
-        if (imgArray.length <= 1) {
-            taeget.find('.carousel-misc').hide();
-        }
     },
     bind: function() {
         var me = this;

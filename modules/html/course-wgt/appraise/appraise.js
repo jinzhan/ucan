@@ -1,11 +1,12 @@
-var $ = require('/modules/lib/jquery.js');
+// var $ = require('/modules/lib/jquery.js');
 var Vue = require('/modules/lib/Vue.js');
 var axios = require('/modules/lib/axios.js');
+require('/modules/js/slider.js');
 
 module.exports = {
     init: function () {
         var vm = new Vue({
-            el: '#recom-teacher',
+            el: '#class-evaluate',
             created: function () {
                 this.loadData();
             },
@@ -16,7 +17,7 @@ module.exports = {
             methods: {
                 loadData: function () {
                     var $this = this;
-                    axios.get('/view/guest/teachers/findList', {
+                    axios.get('/view/guest/courses/evaluations/query', {
                         params: {}
                     })
                         .then(function (response) {

@@ -1,5 +1,7 @@
-<div class="class-evaluate">
-    {%widget name="y:widget/wgt/title/title.tpl" title="课程评价"%}
+<div class="class-evaluate" id="class-evaluate">
+    <h2 class="title-bar">
+        <span>课程评价</span>
+    </h2>
     <ul class="evaluate-content">
         <li class="clearfix">
             <div class="evaluate-logo" style="background-image: url();"></div>
@@ -57,11 +59,11 @@
     </div>
 </div>
 
-{%script%}
-    require.async('./class-evaluate.js', function(evaluate){
+<script>
+    require.async('./appraise.js', function(evaluate){
         evaluate.init();
     });
-{%/script%}
+</script>
 
 
 

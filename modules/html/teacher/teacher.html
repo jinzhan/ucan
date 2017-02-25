@@ -16,7 +16,7 @@
         <ul class="slider-el lo-home cf"  v-bind:style="'width:'+(rows.length*430-40) + 'px'">
             <li v-for="(item, index) in rows">
                 <a href="#">
-                    <span class="img" v-bind:style="'background:url('+item.photoUrl+')'"></span>
+                    <span class="img" v-bind:style="'background:url('+item.ucanFile.newUrl+')'"></span>
                     <span>{{item.name}}（{{item.schoolsClasses.school.city}}）</span>
                 </a>
             </li>
