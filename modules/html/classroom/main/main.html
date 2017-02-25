@@ -1,17 +1,19 @@
-<div class="classroom-main">
-
+<div class="classroom-main" id="classroom">
     <div class="carousel-box">
-
+        <link rel="import" href="/modules/html/classroom/carousel/carousel.html?__inline">
     </div>
 
     <h2 class="tl-title">全部课程 &gt;</h2>
 
     <ul class="cul course-type">
-        <li><a class="cur" href="#">全部课程</a></li>
-        <li><a href="#">英语</a></li>
-        <li><a href="#">语文</a></li>
-        <li><a href="#">数学</a></li>
-        <li><a href="#">其他</a></li>
+        <li><a href="#"
+               v-bind:class="{'cur': currentNavId===navAllIds}"
+               v-on:click.prevent="currentNavId=navAllIds;changeClassNav(navAllIds)">全部课程</a></li>
+        <li v-for="(item, index) in navList"
+        ><a href="#"
+            v-bind:class="{'cur': currentNavId===item.id}"
+            v-on:click.prevent="currentNavId=item.id;changeClassNav(item.id)"
+        >{{ item.topic }}</a></li>
     </ul>
 
     <div class="cul sort-type cf">
@@ -42,16 +44,21 @@
 
     <div class="course-content">
         <ul>
-            {%for $i=0;$i<9;$i++%}
-            <li>
-                <a href="/y/page/classroom/detail">
-                    <span class="img"></span>
-                    <span class="title">课程标题课程标题课程标题课程标题课程标题</span>
-                    <span class="join-num">报名人数xxx人</span>
+            <li v-for="(item, index) in rows"
+            >
+                <a href="./class.html">
+                    <span class="img" v-bind:style="'background:url(' + item.teacher.ucanFile.newUrl+ ')'"></span>
+                    <span class="title">{{ item.name }}</span>
+                    <span class="join-num">报名人数{{item.maxStudentCount}}人</span>
                     <span class="fee">￥666.00</span>
                 </a>
             </li>
-            {%/for%}
         </ul>
     </div>
 </div>
+
+<script>
+    require.async('./main.js', function(app){
+        app.init();
+    });
+</script>

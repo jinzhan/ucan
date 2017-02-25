@@ -1,0 +1,35 @@
+<div class="class-aside" id="class-aside">
+    <div class="ztl-header">
+        <h2 class="tl-title">即将直播</h2>
+        <div class="tl-btn-container">
+            <a class="tl-forward tl-btn"
+               v-on:click="if(index<maxIndex){index++;rows=currentRows.slice(index * size, (index + 1) * size)}"
+               v-bind:class="{'disabled': index===maxIndex}">
+                <span class="tl-right-arrow"></span>
+            </a>
+            <a class="tl-backward tl-btn"
+               v-on:click="if(index>0){index--;rows=currentRows.slice(index * size, (index + 1) * size);}"
+               v-bind:class="{'disabled': index===0}">
+                <span class="tl-left-arrow"></span>
+            </a>
+        </div>
+    </div>
+    <div class="course-content">
+        <ul class="slider-el lo-home cf">
+            <li v-for="(item, index) in rows">
+                    <a href="#">
+                        <span class="img" v-bind:style="'background:url(' + item.cost.coursePlans.courses.ucanFile.newUrl+ ')'"></span>
+                        <span class="start-time">{{item.cost.bigintTime}}</span>
+                        <span class="title">{{item.cost.coursePlans.courses.name}}</span>
+                        <span class="fee">{{'￥' + item.cost.cost}}</span>
+                    </a>
+                </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    require.async('./aside.js', function(app){
+        app.init();
+    });
+</script>
