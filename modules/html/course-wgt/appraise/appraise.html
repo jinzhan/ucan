@@ -3,37 +3,15 @@
         <span>课程评价</span>
     </h2>
     <ul class="evaluate-content">
-        <li class="clearfix">
+        <li class="clearfix" v-for="(item, index) in rows">
             <div class="evaluate-logo" style="background-image: url();"></div>
             <div class="evaluate-detail">
                 <div class="evaluate-level" data-level='5'>
                     <span class="flower-gray"></span>
-                    <span class="flower-color len-0"></span>
+                    <span class="flower-color" v-bind:class="'len-' + item.evaluationFraction"></span>
                 </div>
-                <p>学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价。</p>
-                <span class="evaluate-time">2017-02-18 11:11</span>
-            </div>
-        </li>
-        <li class="clearfix">
-            <div class="evaluate-logo" style="background-image: url();"></div>
-            <div class="evaluate-detail">
-                <div class="evaluate-level" data-level='2'>
-                    <span class="flower-gray"></span>
-                    <span class="flower-color len-1"></span>
-                </div>
-                <p>学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价。</p>
-                <span class="evaluate-time">2017-02-18 11:11</span>
-            </div>
-        </li>
-        <li class="clearfix">
-            <div class="evaluate-logo" style="background-image: url();"></div>
-            <div class="evaluate-detail">
-                <div class="evaluate-level" data-level='0'>
-                    <span class="flower-gray"></span>
-                    <span class="flower-color len-5"></span>
-                </div>
-                <p>学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价学生评价。</p>
-                <span class="evaluate-time">2017-02-18 11:11</span>
+                <p>{{item.evaluation}}</p>
+                <span class="evaluate-time">{{item.createdAt}}</span>
             </div>
         </li>
     </ul>
