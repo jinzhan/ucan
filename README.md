@@ -47,7 +47,7 @@
 	fis3 release prod-debug # 本地查看发布产品库状态
     fis3 release prod # 发布产品库
 
-    fis3 release rd # 发布到指定机器（需要上次发的那个远程recevier.php脚本）
+    fis3 release rd # 发布到指定机器（需要部署远程recevier.php脚本）
 	fis3 release rd-debug # 发布到指定机器调试
 
 
