@@ -27,7 +27,7 @@ module.exports = {
                     var $this = this;
                     axios.get('/view/guest/courses/evaluations/query', {
                         params: {
-                            courseId: ''
+                            courseId: courseId
                         }
                     })
                         .then(function (response) {

@@ -1,4 +1,5 @@
 var $ = require('/modules/lib/jquery.js');
+require('/modules/lib/jquery.ui.dialog.js');
 var Vue = require('/modules/lib/Vue.js');
 var axios = require('/modules/lib/axios.js');
 require('/modules/js/slider.js');
@@ -30,7 +31,9 @@ module.exports = {
             data: {
                 isLoading: 0,
                 co: {},
-                ooo: 0,
+                selectedCourse: -1,
+                showClasses: 0,
+                rows: [],
                 live: 0
             },
             methods: {
@@ -67,15 +70,69 @@ module.exports = {
                     params.append('courseId', courseId);
                     params.append('mode', this.co.mode);
                     axios.post('/courses/favorite/add', params)
-                        .then(function(response){
+                        .then(function (response) {
                             alert(response.data.message);
                         });
                 },
-                getOoo: function (id) {
+                getClasses: function (id) {
+                    /**
+                     *   $('.class-dialog').dialog({
+                     *       resizable: false,
+                     *       height: 'auto',
+                     *       width: 400,
+                     *       modal: true
+                     *   });
+                     **/
+                    if (this.showClasses) {
+                        return;
+                    }
 
+                    // 显示弹窗
+                    this.$set(this, 'showClasses', 1);
+                    var date = new Date();
+                    var m = date.getMonth() + 1;
+                    var em = date.getMonth() + 2;
+                    var d = date.getDate();
+                    var beginDate = date.getFullYear() + '-' + (m > 9 ? m : '0' + m) + '-' + (d > 9 ? d : '0' + d);
+                    var endDate = date.getFullYear() + '-' + (em > 9 ? em : '0' + em) + '-' + (d > 9 ? d : '0' + d);
+                    axios.get('/view/guest/costs/findPage', {
+                        params: {
+                            courseId: courseId,
+                            // beginDate: beginDate,
+                            beginDate: '2017-02-20',
+                            endDate: endDate
+                        }
+                    })
+                        .then(function (response) {
+                            var data = response.data.data;
+                            this.$set(this, 'rows', data.rows);
+                          }.bind(this)
+                        )
+                        .catch(function (error) {
+                            console.log(error);
+                        });
                 },
-                getLive: function(id) {
 
+                // 预约课程
+                subscribeCourse: function(){
+                    var selectedCourse = this.selectedCourse;
+                    // TODO
+                    var costId = '';
+                    if(selectedCourse < 0) {
+                        alert('请选择要预约的课程');
+                        return;
+                    }
+                    var params = new URLSearchParams();
+                    params.append('costId', costId);
+                    axios.post('/courses/schedules/add', params)
+                        .then(function (response) {
+                                var data = response.data;
+                                alert(data.message);
+                            }.bind(this)
+                        )
+                        .catch(function (error) {
+                            console.log(error);
+                        });
                 }
             }
         });

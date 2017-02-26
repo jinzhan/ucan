@@ -16,6 +16,7 @@
         >{{ item.topic }}</a></li>
     </ul>
 
+    <!--
     <div class="cul sort-type cf">
         <ul class="main-sort-type">
             <li><a class="cur" href="#">综合排序</a></li>
@@ -41,12 +42,13 @@
             <li><span></span>精品课</li>
         </ul>
     </div>
+    -->
 
     <div class="course-content">
         <ul>
             <li v-for="(item, index) in rows"
             >
-                <a href="./course.html">
+                <a href="./course.html?courseId=2">
                     <span class="img" v-bind:style="'background:url(' + item.teacher.ucanFile.newUrl+ ')'"></span>
                     <span class="title">{{ item.name }}</span>
                     <span class="join-num">报名人数{{item.maxStudentCount}}人</span>
