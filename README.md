@@ -2,7 +2,7 @@
 
 ## 构建命令
     fis3 release prod # 发布产品库
-    fis3 release prod-path # 需要配置路径
+    (fis3 release prod-path  # 需要配置路径)
 
 该项目依赖百度开源前端框架[fis3](http://fis.baidu.com/)。详细命令请[查看这里](http://fis.baidu.com/fis3/docs/api/command.html)。
 
@@ -49,11 +49,10 @@
 
 	fis3 release
 
-	fis3 release prod-debug # 本地查看发布产品库状态
     fis3 release prod # 发布产品库
+    fis3 release prod-path # 发布带域名和path
 
-    fis3 release rd # 发布到指定机器（需要部署远程recevier.php脚本）
-	fis3 release rd-debug # 发布到指定机器调试
+    fis3 release remote # 发布到指定机器（需要部署远程recevier.php脚本）
 
 
 ## 目录说明
