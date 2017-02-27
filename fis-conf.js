@@ -207,7 +207,7 @@ fis.media('prod')
             }),
 
             fis.plugin('local-deliver', {
-                to: 'output'
+                to: 'dist'
             })
         ]
     });

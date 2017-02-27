@@ -1,4 +1,6 @@
 # 文档
+fis3 release prod # 发布产品库
+
 该项目依赖[fis3](http://fis.baidu.com/), 这是一个非常容易上手的前端集成框架。详细命令请[查看这里](http://fis.baidu.com/fis3/docs/api/command.html)。
 
 ## 部署步骤
@@ -29,7 +31,7 @@
     npm install -g fis3-postpackager-loader
 
     # optimizer类
-    npm install -g fis3-optimizer-html-compress
+    npm install -g fis-optimizer-html-compress
 
     # deploy类
     npm install -g fis3-deploy-skip-packed

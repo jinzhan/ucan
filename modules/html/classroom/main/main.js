@@ -69,14 +69,14 @@ module.exports = {
                         }
                     })
                         .then(
-                            response => {
+                            function(response) {
                                 var data = response.data.data;
                                 this.$set(this, 'rows', data.rows);
                                 this.$set(this, 'loading', 0);
                                 this.$set(this, 'maxPage', Math.ceil(data.total/this.size));
-                            }
+                            }.bind(this)
                         )
-                        .catch( error => console.log(error));
+                        .catch( function(error) {console.log(error);});
                 },
 
                 gotoPage: function(){
