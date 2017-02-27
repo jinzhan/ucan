@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="address=no" name="format-detection"/>    <title>直播课堂 - 优伴 uCan</title>
+        <link rel="stylesheet" type="text/css" href="/static/html/header/header_014f718.css" />
+    <link rel="stylesheet" type="text/css" href="/static/html/classroom/carousel/carousel_52b4216.css" />
+    <link rel="stylesheet" type="text/css" href="/static/html/classroom/main/main_75bdd3b.css" />
+    <link rel="stylesheet" type="text/css" href="/static/html/classroom/aside/aside_500b20f.css" />
+    <link rel="stylesheet" type="text/css" href="/static/html/classroom/1on1/1on1_2475510.css" />
+    <link rel="stylesheet" type="text/css" href="/static/html/footer/footer_74e8444.css" />
+    <link rel="stylesheet" href="/static/css/base_0b2c6c1.css" />
+    <link rel="stylesheet" href="/static/css/page_82f88a3.css" />
+</head>
+
+<body>
+    <!--顶部-->
+    <header class="cf">
+    <a class="logo" href="#"><img src="/static/html/header/img/logo_c114a05.png"/></a>
+
+    <!--未登录状态-->
+    <aside class="not-login" style="display: none">
+        <ul>
+            <li><a href="#">免费注册</a></li>
+            <li><a href="#">学生登录</a></li>
+        </ul>
+    </aside>
+
+    <!--已登录状态-->
+    <aside class="is-login">
+        <div class="head-photo">
+            <img src="" alt="">
+        </div>
+        <div class="user-box">
+            <p class="user-name">张三</p>
+            <div class="user-info-box">
+                <a href="#" class="a user-notice-btn"></a>
+                <div class="a user-drop-down-btn" id="user-drop-down-btn">
+                    <!--<img src="/widget/header/img/profile.png" alt="home"/>-->
+                    <span class="ico-profile"></span>
+                    <div class="user-drop-down" id="user-drop-down">
+                        <div class="little-arrow"></div>
+                        <div class="shadow-arrow"></div>
+                        <ul class="true-list">
+                            <li>
+                                <a href="#">
+                                    <span class="ico-img ico-home"></span>
+                                    我的主页
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ico-img ico-class-m"></span>
+                                    课程管理
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ico-img ico-trade-m"></span>
+                                    交易管理
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ico-img ico-dollar"></span>
+                                    账户充值
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ico-img ico-setup"></span>
+                                    个人设置
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="ico-img ico-go-away"></span>
+                                    退出登录
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <nav>
+        <div class="search">
+            <input type="text" name="" id="">
+            <button class="b"></button>
+        </div>
+        <ul id="main-nav">
+            <li><a class="nav-index" href="./index.html">首页</a></li>
+            <li><a href="./classroom.html">直播课堂</a></li>
+            <li><a href="#">课程</a></li>
+            <li><a href="#">家教</a></li>
+            <li><a href="#">微校</a></li>
+            <li><a class="nav-quxue" href="quxue.html">趣学英语</a></li>
+            <li><a href="#">智力游戏</a></li>
+            <li><a class="nav-about" href="about.html">关于优看</a></li>
+            <li><a href="#">下载APP</a></li>
+        </ul>
+    </nav>
+</header>
+    <div class="layout-1238 class-room-layout">
+        <div class="cf">
+            <div class="classroom-main" id="classroom">
+    <div class="carousel-box">
+        <div class="class-carousel">
+    <div class="carousel-wp">
+        <ul id="slideContainer">
+            <li style="background-color: rgb(0, 0, 0);"><a href="#"><img src="/static/html/classroom/carousel/img/p1_51fc0f7.jpg" width="960" height="440" /></a></li>
+            <li style="background-color: rgb(32, 6, 51);"><a href="#"><img src="/static/html/classroom/carousel/img/p2_355a85b.jpg" width="960" height="440" /></a></li>
+            <li style="background: rgb(156, 0, 102)"><a href="#"><img src="/static/html/classroom/carousel/img/p3_c568ed3.jpg" width="960" height="440" /></a></li>
+            <li style="background: #292823"><a href="#"><img src="/static/html/classroom/carousel/img/p4_9168aad.jpg" width="960" height="440" /></a></li>
+        </ul>
+    </div>
+    <ul class="carousel-list">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+    </ul>
+</div>    </div>
+
+    <h2 class="tl-title">全部课程 &gt;</h2>
+
+    <ul class="cul course-type">
+        <li><a href="#"
+               v-bind:class="{'cur': courseTopicsIds===navAllIds || courseTopicsIds===''}"
+               v-on:click.prevent="changeClassNav(navAllIds)">全部课程</a></li>
+        <li v-for="(item, index) in navList"
+        ><a href="#"
+            v-bind:class="{'cur': courseTopicsIds===item.id}"
+            v-on:click.prevent="changeClassNav(item.id)"
+        >{{ item.topic }}</a></li>
+    </ul>
+
+    <!--
+    <div class="cul sort-type cf">
+        <ul class="main-sort-type">
+            <li><a class="cur" href="#">综合排序</a></li>
+            <li><a href="#">最新</a></li>
+            <li><a href="#">评分</a></li>
+            <li class="sort-type-price"><a href="#">价格</a>
+                <span class="up"></span>
+                <span class="down"></span>
+            </li>
+            <li class="price-range">
+                <a href="#">价格区间</a>
+                <ul class="price-content">
+                    <li>1000以下</li>
+                    <li>1000--2000</li>
+                    <li>2000--3000</li>
+                    <li>3000以上</li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="sort-type-plus">
+            <li><span></span>直播课</li>
+            <li><span></span>精品课</li>
+        </ul>
+    </div>
+    -->
+
+    <div class="course-content">
+        <ul class="cf">
+            <li v-for="(item, index) in rows"
+            >
+                <a href="./course.html?courseId=2">
+                    <span class="img" v-bind:style="'background:url(' + item.teacher.ucanFile.newUrl+ ')'"></span>
+                    <span class="title">{{ item.name }}</span>
+                    <span class="join-num">报名人数{{item.maxStudentCount}}人</span>
+                    <span class="fee">￥666.00</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="paginator">
+        <ul class="pagelist clearfix">
+            <li>当前第{{page}}页</li>
+            <li>共<span>{{maxPage}}</span>页</li>
+            <li class="left"><a href="#" v-bind:class="{'disabled':page===1}"
+                                v-on:click="page>1 && (page=page-1) && loadClass()"
+            >上一页</a></li>
+            <li class="right"><a href="#"
+                                 v-bind:class="{'disabled':maxPage<=page}"
+                                 v-on:click="maxPage>page && (page=page+1) && loadClass()"
+            >下一页</a></li>
+
+        </ul>
+        <div class="countpage clearfix">
+            <div class="goto">
+                去第
+                <input type="number" class="goto-num" />
+                页
+            </div>
+            <button class="confirm" v-on:click="gotoPage">确定</button>
+        </div>
+    </div>
+</div>
+            <div class="class-aside" id="class-aside">
+    <div class="ztl-header">
+        <h2 class="tl-title">即将直播</h2>
+        <div class="tl-btn-container">
+            <a class="tl-forward tl-btn"
+               v-on:click="if(index<maxIndex){index++;rows=currentRows.slice(index * size, (index + 1) * size)}"
+               v-bind:class="{'disabled': index===maxIndex}">
+                <span class="tl-right-arrow"></span>
+            </a>
+            <a class="tl-backward tl-btn"
+               v-on:click="if(index>0){index--;rows=currentRows.slice(index * size, (index + 1) * size);}"
+               v-bind:class="{'disabled': index===0}">
+                <span class="tl-left-arrow"></span>
+            </a>
+        </div>
+    </div>
+    <div class="course-content">
+        <ul class="slider-el lo-home cf">
+            <li v-for="(item, index) in rows">
+                    <a href="#">
+                        <span class="img" v-bind:style="'background:url(' + item.cost.coursePlans.courses.ucanFile.newUrl+ ')'"></span>
+                        <span class="start-time">{{item.cost.bigintTime}}</span>
+                        <span class="title">{{item.cost.coursePlans.courses.name}}</span>
+                        <span class="fee">{{'￥' + item.cost.cost}}</span>
+                    </a>
+                </li>
+        </ul>
+    </div>
+</div>        </div>
+        <div class="box-1on1 slider-outer" id="box-1on1" data-ox="55">
+    <div class="header-1on1">
+        <h2 class="title-bar">
+            <span>课程推荐</span>
+        </h2>
+
+        <div class="tl-btn-container" v-if="rows.length>5">
+            <a class="tl-forward tl-btn">
+                <span class="tl-right-arrow"></span>
+            </a>
+            <a class="tl-backward tl-btn disabled">
+                <span class="tl-left-arrow"></span>
+            </a>
+        </div>
+    </div>
+
+    <ul class="cul course-type">
+        <li><a href="#"
+               v-bind:class="{'cur': currentNavId===navAllIds}"
+               v-on:click.prevent="currentNavId=navAllIds;changeClassNav(navAllIds)">全部课程</a></li>
+        <li v-for="(item, index) in navList"
+        ><a href="#"
+            v-bind:class="{'cur': currentNavId===item.id}"
+            v-on:click.prevent="currentNavId=item.id;changeClassNav(item.id)"
+        >{{ item.topic }}</a></li>
+    </ul>
+
+    <div class="slider-wrapper course-content">
+        <ul class="slider-el cf" v-bind:style="'width:'+(rows.length*(187+55)-55) + 'px'">
+            <li v-for="(item, index) in rows">
+                <a href="#">
+                    <span class="img" v-bind:style="'background:url(' + item.ucanFile.newUrl+ ')'"></span>
+                    <span class="start-time">查看全部课程</span>
+                    <span class="teacher">{{item.name}}<em v-if="item.workYears">{{item.workYears}}年教龄</em><!--<em>英语</em>--></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    </div>
+
+    <!--底部-->
+    <footer>
+    <ul class="m-ul cf">
+        <li class="m-li about-li">
+            <h2>关于优看</h2>
+            智慧之星教育科技有限公司是一家致力于青少年教育和娱乐的高科技公司，公司引进美国哈佛教育科技研究院和北京师范大学研究的“3i”（Interactive +innovative +
+            intelligent）教育理念，我们将用最新网络技术和动漫表现形式开发出为幼儿园、中小学生、老师和家长所需的互动智能教学平台和娱乐学习作品。通过儿童智能设备+云端+APP建立互联网儿童教育成长平台。在此平台上，学生们能够通过一系列青少年智能课件满足学习和娱乐需求。老师、学生和家长可以通过APP获取学习课件、电子图书、教学、交流、娱乐等在线学习和服务。
+        </li>
+
+        <li class="m-li course-set">
+            <h2>课程设置</h2>
+            <ul>
+                <li>英语：介绍介绍介绍介绍介绍 <br/>
+                    介绍介绍介绍介绍介绍介绍介绍介绍介绍
+                </li>
+                <li>
+                    语文：介绍介绍介绍介绍介绍<br/>
+                    介绍介绍介绍介绍绍
+                </li>
+                <li>
+                    数学：介绍介绍介绍介绍介绍<br/>
+                    介绍介绍介绍介绍介绍介绍介绍介绍介绍
+                </li>
+            </ul>
+        </li>
+
+        <li class="m-li contact">
+            <h2>联系优伴</h2>
+            <ul>
+                <li>北京市海淀区皂君庙路4号 联想桥南
+                    我的众创空间2层
+                </li>
+                <li>+86-10-00000000</li>
+                <li>test@test.com</li>
+            </ul>
+            <div class="contact-item">
+                <a href="#" class="qq"></a>
+                <a href="#" class="sina"></a>
+                <a href="#" class="wx"></a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="footer-bottom">
+        <p><a href="#">首页</a> <span>|</span> <a href="#">课程</a> <span>|</span>  <a href="#">关于优伴</a> <span>|</span> <a href="" >免费注册</a> <span>|</span> <a href="#">学生登录</a></p>
+        ©2016 优伴网络 版权所有
+    </div>
+</footer>
+    <script type="text/javascript" src="/static/lib/mod_8bfb06a.js"></script>
+<script>/*resourcemap*/
+require.resourceMap({
+  "res": {
+    "modules/lib/jquery": {
+      "url": "/static/lib/jquery_5d1c1ee.js",
+      "type": "js"
+    },
+    "modules/html/header/header": {
+      "url": "/static/html/header/header_158e91f.js",
+      "type": "js",
+      "deps": [
+        "modules/lib/jquery"
+      ]
+    },
+    "modules/html/classroom/carousel/carousel": {
+      "url": "/static/html/classroom/carousel/carousel_e218dfc.js",
+      "type": "js",
+      "deps": [
+        "modules/lib/jquery"
+      ]
+    },
+    "modules/lib/Vue": {
+      "url": "/static/lib/Vue_9c7c449.js",
+      "type": "js"
+    },
+    "modules/lib/axios": {
+      "url": "/static/lib/axios_4f2eece.js",
+      "type": "js"
+    },
+    "modules/js/slider": {
+      "url": "/static/js/slider_1c0f20f.js",
+      "type": "js",
+      "deps": [
+        "modules/lib/jquery"
+      ]
+    },
+    "modules/html/classroom/main/main": {
+      "url": "/static/html/classroom/main/main_a1e9097.js",
+      "type": "js",
+      "deps": [
+        "modules/lib/jquery",
+        "modules/lib/Vue",
+        "modules/lib/axios",
+        "modules/js/slider"
+      ]
+    },
+    "modules/html/classroom/aside/aside": {
+      "url": "/static/html/classroom/aside/aside_cd09492.js",
+      "type": "js",
+      "deps": [
+        "modules/lib/Vue",
+        "modules/lib/axios",
+        "modules/js/slider"
+      ]
+    },
+    "modules/html/classroom/1on1/1on1": {
+      "url": "/static/html/classroom/1on1/1on1_6fbadb2.js",
+      "type": "js",
+      "deps": [
+        "modules/lib/jquery",
+        "modules/lib/Vue",
+        "modules/lib/axios",
+        "modules/js/slider"
+      ]
+    }
+  },
+  "pkg": {}
+});
+
+    require.async(['modules/html/header/header'], function(app){
+        app.init();
+    });
+
+
+    require.async(['modules/html/classroom/carousel/carousel'], function(carousel){
+        carousel.init();
+    });
+
+
+    require.async(['modules/html/classroom/main/main'], function(app){
+        app.init();
+    });
+
+
+    require.async(['modules/html/classroom/aside/aside'], function(app){
+        app.init();
+    });
+
+
+    require.async(['modules/html/classroom/1on1/1on1'], function(app){
+        app.init();
+    });
+</script>
+</body>
+</html>

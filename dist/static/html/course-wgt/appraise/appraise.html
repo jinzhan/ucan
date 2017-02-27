@@ -1,0 +1,54 @@
+<div class="class-evaluate" id="class-evaluate">
+    <h2 class="title-bar">
+        <span>课程评价</span>
+    </h2>
+    <ul class="evaluate-content">
+        <li class="clearfix" v-for="(item, index) in rows">
+            <div class="evaluate-logo" style="background-image: url();"></div>
+            <div class="evaluate-detail">
+                <div class="evaluate-level" data-level='5'>
+                    <span class="flower-gray"></span>
+                    <span class="flower-color" v-bind:class="'len-' + item.evaluationFraction"></span>
+                </div>
+                <p>{{item.evaluation}}</p>
+                <span class="evaluate-time">{{item.createdAt}}</span>
+            </div>
+        </li>
+    </ul>
+    <div class="paginator">
+        <ul class="pagelist clearfix">
+            <li class="left">上一页</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li class="right">下一页</li>
+        </ul>
+        <div class="countpage clearfix">
+            <div class="pagenumber">
+                共<span>100</span>页
+            </div>
+            <div class="goto">
+                去第
+                <input type="text">
+                页           
+            </div>
+            <button class="confirm">确定</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    require.async(['modules/html/course-wgt/appraise/appraise'], function(evaluate){
+        evaluate.init();
+    });
+</script>
+
+
+
+
+
+
+
+
+
+

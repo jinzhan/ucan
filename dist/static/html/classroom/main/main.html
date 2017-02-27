@@ -1,0 +1,110 @@
+<div class="classroom-main" id="classroom">
+    <div class="carousel-box">
+        <div class="class-carousel">
+    <div class="carousel-wp">
+        <ul id="slideContainer">
+            <li style="background-color: rgb(0, 0, 0);"><a href="#"><img src="/static/html/classroom/carousel/img/p1_51fc0f7.jpg" width="960" height="440" /></a></li>
+            <li style="background-color: rgb(32, 6, 51);"><a href="#"><img src="/static/html/classroom/carousel/img/p2_355a85b.jpg" width="960" height="440" /></a></li>
+            <li style="background: rgb(156, 0, 102)"><a href="#"><img src="/static/html/classroom/carousel/img/p3_c568ed3.jpg" width="960" height="440" /></a></li>
+            <li style="background: #292823"><a href="#"><img src="/static/html/classroom/carousel/img/p4_9168aad.jpg" width="960" height="440" /></a></li>
+        </ul>
+    </div>
+    <ul class="carousel-list">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+    </ul>
+</div>
+
+<script>
+    require.async(['modules/html/classroom/carousel/carousel'], function(carousel){
+        carousel.init();
+    });
+</script>
+    </div>
+
+    <h2 class="tl-title">全部课程 &gt;</h2>
+
+    <ul class="cul course-type">
+        <li><a href="#"
+               v-bind:class="{'cur': courseTopicsIds===navAllIds || courseTopicsIds===''}"
+               v-on:click.prevent="changeClassNav(navAllIds)">全部课程</a></li>
+        <li v-for="(item, index) in navList"
+        ><a href="#"
+            v-bind:class="{'cur': courseTopicsIds===item.id}"
+            v-on:click.prevent="changeClassNav(item.id)"
+        >{{ item.topic }}</a></li>
+    </ul>
+
+    <!--
+    <div class="cul sort-type cf">
+        <ul class="main-sort-type">
+            <li><a class="cur" href="#">综合排序</a></li>
+            <li><a href="#">最新</a></li>
+            <li><a href="#">评分</a></li>
+            <li class="sort-type-price"><a href="#">价格</a>
+                <span class="up"></span>
+                <span class="down"></span>
+            </li>
+            <li class="price-range">
+                <a href="#">价格区间</a>
+                <ul class="price-content">
+                    <li>1000以下</li>
+                    <li>1000--2000</li>
+                    <li>2000--3000</li>
+                    <li>3000以上</li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="sort-type-plus">
+            <li><span></span>直播课</li>
+            <li><span></span>精品课</li>
+        </ul>
+    </div>
+    -->
+
+    <div class="course-content">
+        <ul class="cf">
+            <li v-for="(item, index) in rows"
+            >
+                <a href="./course.html?courseId=2">
+                    <span class="img" v-bind:style="'background:url(' + item.teacher.ucanFile.newUrl+ ')'"></span>
+                    <span class="title">{{ item.name }}</span>
+                    <span class="join-num">报名人数{{item.maxStudentCount}}人</span>
+                    <span class="fee">￥666.00</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="paginator">
+        <ul class="pagelist clearfix">
+            <li>当前第{{page}}页</li>
+            <li>共<span>{{maxPage}}</span>页</li>
+            <li class="left"><a href="#" v-bind:class="{'disabled':page===1}"
+                                v-on:click="page>1 && (page=page-1) && loadClass()"
+            >上一页</a></li>
+            <li class="right"><a href="#"
+                                 v-bind:class="{'disabled':maxPage<=page}"
+                                 v-on:click="maxPage>page && (page=page+1) && loadClass()"
+            >下一页</a></li>
+
+        </ul>
+        <div class="countpage clearfix">
+            <div class="goto">
+                去第
+                <input type="number" class="goto-num" />
+                页
+            </div>
+            <button class="confirm" v-on:click="gotoPage">确定</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    require.async(['modules/html/classroom/main/main'], function(app){
+        app.init();
+    });
+</script>

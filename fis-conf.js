@@ -133,22 +133,18 @@ fis.match('::package', {
 
 // debug后缀 不会压缩
 var map = {
-    'rd': {
-        host: '',
-        path: ''
-    },
-    'rd-debug': {
-        host: '',
-        path: ''
-    },
     // 生产环境配置
-    'prod': {
+    'prod-path': {
         host: 'http://ucan.com',
         path: '/${project.name}'
     },
-    'prod-debug': {
+    'prod': {
         host: '',
         path: ''
+    },
+    'remote': {
+        host: 'http://ucan.com',
+        path: '/${project.name}'
     }
 };
 
@@ -213,8 +209,24 @@ fis.media('prod')
     });
 
 
+fis.media('prod-debug')
+    .match('**', {
+        deploy: [
+            fis.plugin('skip-packed', {
+                // 默认被打包了 js 和 css 以及被 css sprite 合并了的图片都会在这过滤掉，
+                // 但是如果这些文件满足下面的规则，则依然不过滤
+                ignore: []
+            }),
+
+            fis.plugin('local-deliver', {
+                to: 'dist'
+            })
+        ]
+    });
+
+
 // 远程部署, 发布到指定的机器
-['rd', 'rd-debug'].forEach(function (v) {
+['remote'].forEach(function (v) {
     fis.media(v)
         .match('*', {
             deploy: [

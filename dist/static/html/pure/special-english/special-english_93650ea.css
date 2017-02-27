@@ -1,0 +1,20 @@
+.lo-home {
+  width: 1254px;
+  margin: 60px auto;
+}
+.special-english ul {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.special-english ul li {
+  width: 294px;
+  height: 323px;
+  background: #fff2b8;
+}
+.special-english .title-bar span {
+  border-bottom: 1px solid #00b7ee;
+}

@@ -1,0 +1,149 @@
+.box-1on1 {
+  width: 1155px;
+  position: relative;
+  margin-top: 60px;
+  padding: 30px 40px;
+  border: 1px solid #dcdcdc;
+}
+.box-1on1 .title-bar span {
+  border-color: #8fc31f;
+}
+.box-1on1 .header-1on1 .tl-btn-container {
+  position: absolute;
+  right: 40px;
+  top: 30px;
+  box-sizing: border-box;
+  height: 35px;
+}
+.box-1on1 .header-1on1 .tl-btn-container .tl-btn {
+  float: right;
+  position: relative;
+  top: -5px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #DCDCDC;
+}
+.box-1on1 .header-1on1 .tl-btn-container .tl-backward {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.box-1on1 .header-1on1 .tl-btn-container .tl-backward .tl-left-arrow {
+  display: inline-block;
+  position: relative;
+  left: 12px;
+  top: 6px;
+  width: 15px;
+  height: 15px;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #8B8B8B;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.box-1on1 .header-1on1 .tl-btn-container .tl-forward {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.box-1on1 .header-1on1 .tl-btn-container .tl-forward .tl-right-arrow {
+  display: inline-block;
+  position: relative;
+  left: 1px;
+  top: 6px;
+  width: 15px;
+  height: 15px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #8B8B8B;
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.box-1on1 .cul {
+  border: 1px solid #dcdcdc;
+  background: #eee;
+  height: 28px;
+  line-height: 28px;
+}
+.box-1on1 .cul li {
+  float: left;
+  padding: 0 10px;
+}
+.box-1on1 .cul a {
+  color: #000;
+}
+.box-1on1 .cul .cur {
+  color: #eb6100;
+}
+.box-1on1 .course-type {
+  margin: 30px 0;
+}
+.box-1on1 .main-sort-type {
+  float: left;
+}
+.box-1on1 .sort-type-plus {
+  float: right;
+}
+.box-1on1 .sort-type-plus li {
+  padding: 0 10px 0 24px;
+  position: relative;
+}
+.box-1on1 .sort-type-plus li span {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  left: 0;
+  top: 7px;
+}
+.box-1on1 .course-content li {
+  float: left;
+  margin-left: 55px;
+}
+.box-1on1 .course-content li:first-child {
+  margin-left: 0;
+}
+.box-1on1 .course-content a {
+  display: block;
+  width: 187px;
+  position: relative;
+}
+.box-1on1 .course-content a span {
+  display: block;
+}
+.box-1on1 .course-content a span.img {
+  height: 198px;
+  border: 1px solid #ccc;
+  background: #efefef;
+}
+.box-1on1 .course-content a .start-time {
+  font-size: 14px;
+  background-color: #eee;
+  text-align: center;
+  margin-top: 5px;
+  color: #a0a0a0;
+}
+.box-1on1 .course-content a .fee {
+  font-size: 18px;
+  color: #ff7e00;
+}
+.box-1on1 .course-content a .free {
+  color: #80d610;
+}
+.box-1on1 .teacher {
+  text-align: center;
+  color: #6a3906;
+  font-size: 18px;
+  padding-top: 10px;
+}
+.box-1on1 .teacher em {
+  line-height: 16px;
+  border: 1px solid #6a3906;
+  border-radius: 4px;
+  font-size: 12px;
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 4px;
+}

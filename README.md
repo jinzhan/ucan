@@ -1,7 +1,10 @@
 # 文档
-fis3 release prod # 发布产品库
 
-该项目依赖[fis3](http://fis.baidu.com/), 这是一个非常容易上手的前端集成框架。详细命令请[查看这里](http://fis.baidu.com/fis3/docs/api/command.html)。
+## 构建命令
+    fis3 release prod # 发布产品库
+    fis3 release prod-path
+
+该项目依赖百度开源前端框架[fis3](http://fis.baidu.com/)。详细命令请[查看这里](http://fis.baidu.com/fis3/docs/api/command.html)。
 
 ## 部署步骤
 
