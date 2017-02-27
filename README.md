@@ -2,7 +2,7 @@
 
 ## 构建命令
     fis3 release prod # 发布产品库
-    fis3 release prod-path #需要配置路径
+    fis3 release prod-path # 需要配置路径
 
 
 该项目依赖百度开源前端框架[fis3](http://fis.baidu.com/)。详细命令请[查看这里](http://fis.baidu.com/fis3/docs/api/command.html)。
