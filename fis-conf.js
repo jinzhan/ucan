@@ -4,7 +4,6 @@ fis.set('project.static', '/static');
 fis.set('project.files', ['*.html', '*.json', 'server.conf', '/test/*']);
 
 // 引入模块化开发插件，设置规范为 commonJs 规范。
-
 fis.hook('commonjs', {
     baseUrl: './modules',
     extList: ['.js', '.es']
@@ -41,7 +40,6 @@ fis.match('/lib/**.js', {
     release: '${project.static}/$&'
 });
 
-
 // ------ 配置components
 fis.match('/components/**', {
     release: '${project.static}/$&'
@@ -57,11 +55,14 @@ fis.match('/components/**.js', {
     release: '${project.static}/$&'
 });
 
-
 // ------ 配置modules
 fis.match('/modules/(**)', {
     release: '${project.static}/$1'
 });
+
+// fis.match('/modules/lib/**.js', {
+//     release: '${project.static}/$&'
+// });
 
 fis.match(/^\/modules\/(.*\.less)$/i, {
     parser: fis.plugin('less', {
@@ -96,23 +97,11 @@ fis.match(/^\/modules\/(.*\.js)$/i, {
     release: '${project.static}/$1'
 });
 
-
-// ------ 配置前端模版 使用template.js
-fis.match('**.tmpl', {
-    parser: fis.plugin('template', {
-        sTag: '<#',
-        eTag: '#>',
-        global: 'template'
-    }),
-    isJsLike: true,
-    release: false
-});
-
-
 // ------ 配置模拟数据
 fis.match('/test/**', {
     release: '$0'
 });
+
 fis.match('/test/server.conf', {
     release: '/config/server.conf'
 });
