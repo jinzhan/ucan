@@ -1,7 +1,9 @@
 // 设置项目属性
 fis.set('project.name', 'ucan');
 fis.set('project.static', '/static');
-fis.set('project.files', ['*.html', '*.json', 'server.conf', '/test/*']);
+// fis.set('project.files', ['*.html', '*.json', 'server.conf', '/test/*']);
+fis.set('project.files', ['**']);
+fis.set('project.ignore', ['node_modules/**', 'dist/**', '.git/**', 'fis-conf.js', 'README.md']);
 
 // 引入模块化开发插件，设置规范为 commonJs 规范。
 fis.hook('commonjs', {
