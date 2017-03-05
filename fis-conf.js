@@ -1,7 +1,6 @@
 // 设置项目属性
 fis.set('project.name', 'ucan');
 fis.set('project.static', '/static');
-// fis.set('project.files', ['*.html', '*.json', 'server.conf', '/test/*']);
 fis.set('project.files', ['**']);
 fis.set('project.ignore', ['node_modules/**', 'dist/**', '.git/**', 'fis-conf.js', 'README.md']);
 
